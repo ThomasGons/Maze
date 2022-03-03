@@ -2,7 +2,7 @@
 
 # Compiler, linker and flags
 
-CC = gcc -fsanitize=address 
+CC = gcc # -fsanitize=address 
 CFLAGS = -g -O3 -Wall -Wextra -Wno-unused-value -std=c17
 LDFLAGS = -Wall -I$(DINC) -lm 
 

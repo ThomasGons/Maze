@@ -5,10 +5,11 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include <time.h>
+#include <unistd.h>
 
 #define ALLOCATION_FAILURE -1
 
-#define SIZE 5
+#define SIZE 25
 
 typedef enum bool{
     false, true
@@ -36,6 +37,7 @@ typedef struct Cell{
 void initMaze(Grid);
 void randomizedAlgorithmOfPrim(Grid);
 List addNeighbors(Grid, List, uint16_t*, uint16_t, uint16_t, bool);
+void seekRandomNeighbor(List, uint16_t, uint16_t*, uint16_t*);
 void openEdge(Grid, uint16_t, uint16_t);
 void displayMaze(Grid);
 
@@ -45,5 +47,6 @@ List addList(List, Coord);
 List delList(List, Coord);
 List freeList(List);
 bool lookUpList(List, uint16_t, uint16_t);
+void displayList(List);
 
 #endif

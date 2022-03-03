@@ -6,7 +6,7 @@ List addList(List li, Coord elm){
         fprintf(stderr, "Allocation failure\n");
         exit(ALLOCATION_FAILURE);
     }
-    *new = (Node) { elm, NULL};
+    *new = (Node) {elm, NULL};
     if (!li){
         return new;
     }
@@ -47,7 +47,13 @@ List freeList(List li){
 
 bool lookUpList(List li, uint16_t x, uint16_t y){
     if (!li) return false;
-    for (; li->next; li = li->next)
+    for (; li; li = li->next){
         if (li->co.x == x && li->co.y == y) return true;
+    }
     return false;
+}
+
+void displayList(List li){
+    for (; li; li = li->next)
+        printf("x: %hhu, y: %hhu", li->co.x, li->co.y);
 }
